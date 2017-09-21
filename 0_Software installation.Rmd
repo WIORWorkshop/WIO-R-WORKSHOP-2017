@@ -1,0 +1,67 @@
+---
+title: " 0. Software installation"
+author: "ALL"
+date: "20 September 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**INSTALLING R and R Studio**
+
+R and R Studio are separate packages. You will need to install R first.
+R is the basic package we are using. R Studio is an add-on that make R easier to use for
+beginners. 
+These instructions should work for Windows and MAC users for installing R and R Studio.
+
+#### **1.INSTALLING R:**
+
+  + Go to http://www.r-project.org/
+    - on the "Getting Started" box, click on "download R." 
+    - on https://cran.r-project.org/mirrors.html, find a site of your choice, ideally the closest to your actual location.
+    - Click to go to that site
+    
+  + On the mirror site of your choice, click on your operating system:
+    - Download R for Linux
+    - Download R for (Mac) OS X
+    - Download R for Windows
+    
+    
+
++ If **Windows**:
+
+    - click on "**base**" and then on **Download R 3.4.1 for Windows**. 
+    - save the file "**R-3.4.1-win.exe**" and then click on it to execute it. 
+    - Once the dialog box opens, click "**RUN**." A Setup Wizard should appear. 
+    - Keep clicking "**Next**" (or change features if you understand them), until it is finished.
+    
+        **Note** that 3.4.1 is the current version as this is being written, but use whatever shows up as current.
+        
++ If **Mac**:
+
+    - click on the last version of the R package **R-3.4.1.pkg** on the page **R for Mac OS X** under the **Files** section
+    - Save the **.pkg file**
+    - Double-click it to open, and follow the installation instructions.
+    
+Now that **R** is installed, you should now see an icon on your desktop, with a large capital "**R**".
+
+
+You then need to download and install RStudio.
+  
+
+#### **2. INSTALLING R STUDIO:**
+
+  + Go to http://www.rstudio.com
+  + click on "Download RStudio" and follow the directions for your operating system.
+
+
+**USING R AND R STUDIO**
+Open R Studio by clicking on the icon.
+You're ready to go!
+
+**EXITING R AND R STUDIO**
+You can exit both at the same time using File??? Quit R Studio
+Or you can type q() at the command prompt. Note that this is the letter q followed by open and
+closed parentheses. 
