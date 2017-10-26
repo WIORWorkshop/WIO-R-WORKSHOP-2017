@@ -1,7 +1,7 @@
 ---
 title: "1.2.Graphing with R"
-author: "ALL"
-date: "18 September 2017"
+author: Adapted from Software Carpentry; modified by Maina,Stephanie
+date: "27 October 2017"
 output: html_document
 ## BASED ON: JOSH MADIN
 ## http://acropora.bio.mq.edu.au/resources/introduction-to-r/graphing/

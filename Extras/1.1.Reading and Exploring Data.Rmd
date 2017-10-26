@@ -1,7 +1,7 @@
 ---
 title: "1.1.Reading and Exploring data"
 author: "ALL"
-date: "18 September 2017"
+date: "27 October 2017"
 output: html_document
 ---
 
@@ -101,14 +101,14 @@ The file `data/seed_root_herbivores.txt` has almost the same data, but in tab se
 
 Remember: `==` tests for equality, `!=` tests for inequality
 
-```{r}
+```{r results='hide'}
 data2=read.table("data/seed_root_herbivores.txt",header=T,sep=";")
 data2==data
 ```
 
 or 
 
-```{r}
+```{r results='hide'}
 data2 != data
 ```
 The point here is that many of the functions and operators in R will try to do the right thing, depending on what you give them.
@@ -123,7 +123,7 @@ head(tmp)
 
 Notice that a fake header (V1, V2, etc) has been created and the actual header is now the first row of data.
 
-### 2. Looking at your data
+# 2. Looking at your data
 
 There are other ways of looking at your data. The summary function works with most types, and gives a by-column summary of the data set.
 
@@ -189,36 +189,6 @@ and then continue to use the new data `data.sub`object).
 The difference between `[` and `[[` can be confusing.
 
 The best explanation I have seen is that imagine that the thing you are subsetting is a train with a bunch of carriages. `[x]` returns a new train with carriages represented by the variable x. So train[c(1,2)] returns a train with just the first two carriages, and train[1] returns a train with just the first c~arriage. The `[[` operator gets the contents of a single carriage. So `train[[1]]` gets the contents of the first carriage, and `train[[c(1,2)]]` doesn't make any sense.
-
-### 3. Looking at your data: plotting
-
-Plotting is covered in the next R module, but it's one of the best things about R so I can't resist showing how to do it:
-
-Here is a histogram of the height variable:
-
-```{r}
-hist(data$Height)
-```
-(it will appear in the bottom right of your screen)
-
-Here is a scatter plot of Height vs weight:
-
-```{r}
-plot(data$Weight,data$Height)
-```
-The order of arguments is x-variable, y-variable.
-
-There is an alternative interface using R's "formulae" - you'll see this a lot in statistical models. Read this as "`Height` is a function of `Weight`". It makes nicer axis labels, too.
-
-```{r}
-plot(Height ~ Weight, data)
-```
-Here is a series of bivariate plots for height, weight and the number of seed heads:
-
-```{r}
-pairs(data[c("Height","Weight","Seed.heads")])
-```
-The take-home being that R makes it very easy to create graphs, and most people who use it casually just make plots of whatever they're looking at. The plots can vary from quick and dirty like this to really beautiful pieces of art.
 
 ### Rows of data.frames
 
@@ -476,5 +446,36 @@ Much better!
 x[rep(1:5,1:5)]
 ```
 `rep` is incredibly useful, and can be used in many ways. See the help page ?rep
+
+
+# 3. Looking at your data: plotting
+
+Plotting is covered in the next R module, but it's one of the best things about R so I can't resist showing how to do it:
+
+Here is a histogram of the height variable:
+
+```{r}
+hist(data$Height)
+```
+(it will appear in the bottom right of your screen)
+
+Here is a scatter plot of Height vs weight:
+
+```{r}
+plot(data$Weight,data$Height)
+```
+The order of arguments is x-variable, y-variable.
+
+There is an alternative interface using R's "formulae" - you'll see this a lot in statistical models. Read this as "`Height` is a function of `Weight`". It makes nicer axis labels, too.
+
+```{r}
+plot(Height ~ Weight, data)
+```
+Here is a series of bivariate plots for height, weight and the number of seed heads:
+
+```{r}
+pairs(data[c("Height","Weight","Seed.heads")])
+```
+The take-home being that R makes it very easy to create graphs, and most people who use it casually just make plots of whatever they're looking at. The plots can vary from quick and dirty like this to really beautiful pieces of art.
 
 

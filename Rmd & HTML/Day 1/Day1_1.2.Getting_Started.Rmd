@@ -1,15 +1,14 @@
 ---
-title: 'Day 1: R Data Manipulation'
-author: "XXX"
-date: "14 September 2017"
-output:
-  html_document: default
-  pdf_document: default
+title: "1.2. R Data Manipulation - Getting started"
+author: Adapted from Software Carpentry; modified by Maina,Stephanie
+date: "27 October 2017"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 
 # 1. Using R as a calculator
 
@@ -198,6 +197,14 @@ Assignment values can contain the variable being assigned to: What will `x` cont
 x<-x+1
 x
 ```
+
+# Clean up
+rm(x)  # Remove an object from workspace
+
+rm(a, b)  # Remove more than one
+
+rm(list = ls()) # Clear entire workspace
+
 
 ###2.2. Vectors
 
@@ -463,36 +470,4 @@ mode(iris3)
 
 When data is all numbers (except for row and column names), I normally use matrices rather than dataframes
 If you have row names in your data file, and you want to convert to a matrix, you will need to specify which column has the row names (see the row.names argument in the read.table function)
-
-# 3. Getting help with R
-This is a summary of the information you can find here https://www.r-project.org/help.html
-
-#### R Help: `help()` and `?`
-The `help()` function and `?` help operator in R provide access to the documentation pages for **R functions, data sets, and other objects**, both for packages in the standard R distribution and for contributed packages. 
-For example, to access documentation for the standard mean function, for example, enter the command:`help(mean)` or `help("mean")`, or `?mean` or `?"mean"` (the quotes are optional).
-
-You may also use the `help()` function to access information about a **package** in your library - for example, `help(package="MASS")` - which displays an index of available help pages for the package along with some other information.
-
-Help pages for functions usually include a section with executable examples illustrating how the functions work. You can execute these examples in the current R session via the `example()` 
-```{r}
-example(mean)
-```
-
-#### Searching for Help Within R
-
-The `help()`  function and `?` operator are useful only if you already know the name of the function that you wish to use. There are also facilities in the standard R distribution for discovering functions and other objects. The following functions cast a progressively wider net. Use the help system to obtain complete documentation for these functions: for example, `apropos()`or `?apropos`.
-
-The `apropos()` function searches for objects, including functions, directly accessible in the current R session that have names that include a specified character string. This may be a literal string or a regular expression to be used for pattern-matching. By default, string matching by `apropos()` is case-insensitive. For example, 
-
-```{r}
-apropos("^glm") 
-```
-returns the names of all accessible objects that start with the (case-insensitive) characters "glm"
-
-#### R Help on the internet
-
-There are internet search sites that are specialized for R searches, including `search.r-project.org` (which is the site used by RSiteSearch) and `Rseek.org`.
-
-It is also possible to use a general search site like **Google**, by qualifying the search with "R" or the name of an R package (or both). 
-**It can be particularly helpful to paste an error message into a search engine** to find out whether others have solved a problem that you encountered.
 
