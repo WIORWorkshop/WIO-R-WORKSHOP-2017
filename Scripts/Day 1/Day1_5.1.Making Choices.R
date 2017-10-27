@@ -15,7 +15,20 @@
 
 ## Conditionals
 
+
+# SIMPLE conditional statements don't have to include an 'else. 
+#If there isn't one, R simply does nothing if the test is false:
+
+num <- 53
+if (num > 100) {
+  print("num is greater than 100")
+}
+
+# Conditional statements don't have to include an 'else.
+
+# IF ELSE conditional statements don't have to include an 'else. 
 num <- 37
+
 if (num > 100) {
   print("greater")
 } else {
@@ -31,17 +44,10 @@ if (num > 100) {
 
 num > 100
 
+
 #And as you likely guessed, the opposite of 'FALSE' is 'TRUE'.
 
 num < 100
-
-#Conditional statements don't have to include an 'else. 
-#If there isn't one, R simply does nothing if the test is false:
-
-num <- 53
-if (num > 100) {
-  print("num is greater than 100")
-}
 
 #We can also chain several tests together when there are more than two options.
 #This makes it simple to write a function that returns the sign of a number:
