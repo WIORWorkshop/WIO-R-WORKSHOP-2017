@@ -5,9 +5,13 @@
 
 # 1. Reading in data
 #As empirical biologists, you'll generally have data to read in. 
-#You probably have your data in an Excel spreadsheet. The simplest way to load these into R is to save a copy of the data as a comma separated values file (.csv) and work with that.
-#It is actually possible to read directly from Excel (but see the gdata package that has a read.xls function, and see this page for other alternatives. 
-#This is usually more hassle than it's worth, and going through a comma separated file is easy enough.
+#You probably have your data in an Excel spreadsheet. The simplest way to
+#load these into R is to save a copy of the data as a comma separated values file 
+#(.csv) and work with that.
+#It is actually possible to read directly from Excel (but see the gdata 
+#package that has a read.xls function, and see this page for other alternatives. 
+#This is usually more hassle than it's worth, and going through a comma separated 
+#file is easy enough.
 #To load the data into R, use **seed_root_herbivores.csv**
 
 #Get the files names
@@ -25,8 +29,10 @@ data<-read.csv("data/seed_root_herbivores.csv")
 #Clicking the little table icon next to the data in the Workspace browser will view the data. Running 'View(data)' will do the same thing.
 
 #The 'data' variable contains 'data.frame' object. 
-#It is a number of columns of the same length, arranged like a matrix. That sentence is tricky, for reasons that will become apparent.
-#Often, looking at the first few rows is all you need to remind yourself about what is in a data set.
+#It is a number of columns of the same length, arranged like a matrix.
+#That sentence is tricky, for reasons that will become apparent.
+#Often, looking at the first few rows is all you need to remind yourself
+#about what is in a data set.
 
 head(data) # looking at the first 6 lines of the data
 
@@ -55,19 +61,29 @@ length(data)
 
 #However, it's useful to know things about saving it.
 
-  #+ Column names should be consistent, of the right length, and **contain no special characters**.
-  #+ **For missing values, either leave them blank or use NA**. But be consistent and don't use -999 or ? or your cat's name.
-  #+ Be careful with whitespace "x" will be treated differently to "x ", and Excel makes it easy to accidently do the latter. Consider the strip.white=TRUE argument to read.csv.
-  #+ Think about the type of the data. We'll cover this more, but are you dealing with a TRUE/FALSE or a category or a count or measurements.
-  #+ Watch out for dashes between numbers. Excel will convert these into dates. So if you have "Site-Plant" style numbers 5-20 will get converted into the 20th of May 1904 or something equally useless. Similar problems happen to gene names in bioinformatics!
-  #+ Merged rows and columns will not work (or at least not in an easily predictible way.
+  #+ Column names should be consistent, of the right length, and **contain no 
+#special characters**.
+  #+ **For missing values, either leave them blank or use NA**. 
+#But be consistent and don't use -999 or ? or your cat's name.
+  #+ Be careful with whitespace "x" will be treated differently to "x ", 
+#and Excel makes it easy to accidently do the latter. Consider the strip.
+#white=TRUE argument to read.csv.
+  #+ Think about the type of the data. We'll cover this more, but are you 
+#dealing with a TRUE/FALSE or a category or a count or measurements.
+  #+ Watch out for dashes between numbers. Excel will convert these into dates. 
+#So if you have "Site-Plant" style numbers 5-20 will get converted into the 20th of
+#May 1904 or something equally useless. Similar problems happen to gene names in 
+#bioinformatics!
+  #+ Merged rows and columns will not work (or at least not in an easily 
+#predictible way.
   #+ Spare rows at the top, or double header rows will not work without jumping through hoops.
   #+ Equations will (should) convert to the value displayed in Excel on export.
   
 ### Exercise
 
 #The file 'data/seed_root_herbivores.txt' has almost the same data, 
-#but in tab separated format (it does have the same number of rows and columns). Look at the ?read.table help page and work out how to load this file in.
+#but in tab separated format (it does have the same number of rows and columns). 
+#Look at the ?read.table help page and work out how to load this file in.
 
 #Remember: '==' tests for equality, '!=' tests for inequality
 

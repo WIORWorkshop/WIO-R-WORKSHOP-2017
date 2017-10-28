@@ -1,13 +1,14 @@
-#set working directory
-setwd("C:/Users/Maina/Dropbox/WIO R Workshop/Workshop Material/Github_WIO_R_WORKSHOP_2017/WIO-R-WORKSHOP-2017/data/")
+#locate yourself appropriately
+getwd()
+list.files()
 
 # 1. Using R as a calculator
 ### 1.1. Doing arithmetic with R
 #The simplest thing you could do with R is to arithmetic
-
 1+100
 
-#Here, we've added 1 and and 100 together to make 101. The [1] preceeding this we will explain in a minute. 
+#Here, we've added 1 and and 100 together to make 101. The [1] preceeding 
+#this we will explain in a minute. 
 #For now, think of it as something that indicates output.
 #of operations is same as in maths class (from highest to lowest precedence)
 
@@ -22,7 +23,8 @@ setwd("C:/Users/Maina/Dropbox/WIO R Workshop/Workshop Material/Github_WIO_R_WORK
 
 3+5*2
 
-#The "caret" symbol (or "hat") is the exponent (to-the-power-of) operator (read `x ^ y` as "x to the power of y"). What will this evaluate to?
+#The "caret" symbol (or "hat") is the exponent (to-the-power-of) operator 
+#(read `x ^ y` as "x to the power of y"). What will this evaluate to?
 
 3+5*2^2
 
@@ -38,11 +40,14 @@ setwd("C:/Users/Maina/Dropbox/WIO R Workshop/Workshop Material/Github_WIO_R_WORK
 
 3+5*(2^2) # if you forget some rules, this might help
 
-#See ?Arithmetic for more information, and two more operators (you can also get there by `?"+"` (note the quotes)
+#See ?Arithmetic for more information, and two more operators (you can also
+#get there by `?"+"` (note the quotes)
 
 ?Arithmetic
 
-##If R thinks that the statement is incomplete, it will change the prompt from `>` to `+` indicating that it is expecting more input. This is not an addition sign! 
+##If R thinks that the statement is incomplete, it will change the prompt 
+#from `>` to `+` indicating that it is expecting more input. 
+#This is not an addition sign! 
 #Try: 
 
 3+5*(2^2
@@ -71,7 +76,6 @@ setwd("C:/Users/Maina/Dropbox/WIO R Workshop/Workshop Material/Github_WIO_R_WORK
 #See `?Comparison` for more information (you can also get there by `help("==")`.
 
 ### 1.3. Scientific notation with R
-
 ##Really small numbers get a scientific notation:
 
 
@@ -100,7 +104,9 @@ log2(100) # base-2 logarithm
 exp(0.5) #e^(1/2)
 
 
-#Plus things like probability density functions for many common distributions, and other mathematical functions (e.g., Gamma, Beta, Bessel). If you need it, it's probably there
+#Plus things like probability density functions for many common distributions, 
+#and other mathematical functions (e.g., Gamma, Beta, Bessel). 
+#If you need it, it's probably there
 
 #2. Data objects in R
 
@@ -113,10 +119,16 @@ x <-1/40
 
 x
 
-#(note that it does not contain the fraction 1/40, it contains a decimal approximation of this fraction. This appears exact in this case, but it is not. These decimal approximations are called "floating point numbers" and at some point you will probably end up having to learn more about them than you'd like).
-#Look up at the top right pane of RStudio, and you'll see that this has appeared in the "Workspace" pane.
+#(note that it does not contain the fraction 1/40, it contains a decimal 
+#approximation of this fraction. This appears exact in this case, but it is not.
+#These decimal approximations are called "floating point numbers" 
+#and at some point you will probably end up having to learn more about them than
+#you'd like).
+#Look up at the top right pane of RStudio, and you'll see that this has appeared 
+#in the "Workspace" pane.
 
-Our variable `x` can be used in place of a number in any calculation that expects a number.
+#Our variable `x` can be used in place of a number in any calculation that expects 
+#a number.
 
 log(x)
 
@@ -128,7 +140,11 @@ sin(x)
 
 x=1/40
 
-#but this is much less common among R users. The most important thing is to be **consistent** with the operator you use. There are occasionally places where it is less confusing to use `<-` than `=`, and it is the most common symbol used in the community. So I'd recommend `<-`.
+#but this is much less common among R users. The most important thing is to 
+#be **consistent** with the operator you use. 
+#There are occasionally places where it is less confusing to use 
+#`<-` than `=`, and it is the most common symbol used in the community. 
+#So I'd recommend `<-`.
 
 #Notice that assignment does not print a value.
 
@@ -139,11 +155,11 @@ x<-100
 
 x
 
-#Assignment values can contain the variable being assigned to: What will `x` contain after running this?
+#Assignment values can contain the variable being assigned to: What will `x`
+#contain after running this?
 
 x<-x+1
 x
-
 
 # Clean up
 rm(x)  # Remove an object from workspace
@@ -159,7 +175,10 @@ rm(list = ls())
 
 ###2.2. Vectors
 
-#R was designed for people who do data analysis. There is a reason why "data" is a more common term than "datum" - generally you have more than one piece of data (although the Guardian argues that this distinction is old fashioned). As a result in R all data types are actually vectors. 
+#R was designed for people who do data analysis. There is a reason why "data" 
+#is a more common term than "datum" - generally you have more than one piece of
+#data (although the Guardian argues that this distinction is old fashioned). 
+#As a result in R all data types are actually vectors. 
 #So the number '1' is actually a vector of numbers that happens to be of length 1.
 
 1
@@ -168,14 +187,17 @@ length(1) # length(): get the length of a vector
 
 ### Build a specific vector
 #To build a vector, use the c(). function (`c` stands for "concatenate")
- 
 x<- c(1,2,40,1234)
 x
 
 length(x)
 
-#(notice how RStudio has updated its description of x. If you click it, you'll get an option to alter it, which is rarely what you want to do).
-#This is a deep piece of engineering in the design; most of R thinks quite happily in terms of vectors. If you wanted to double all the values in the vector, just multiply it by 2:
+#(notice how RStudio has updated its description of x. 
+#If you click it, you'll get an option to alter it, 
+#which is rarely what you want to do).
+#This is a deep piece of engineering in the design; most of R thinks quite 
+#happily in terms of vectors. If you wanted to double all the values in the vector,
+#just multiply it by 2:
 
 2*x
 
@@ -210,7 +232,9 @@ c(x,y)
 
 x+0.1
 
-#**Be careful** though: if you add/multiply together vectors that are of different lengths, but the lengths factor, R will silently "recycle" the length of the shorter one:
+#**Be careful** though: if you add/multiply together vectors that are of
+#different lengths, but the lengths factor, R will silently "recycle" the length 
+#of the shorter one:
 
 x
 
@@ -222,11 +246,16 @@ x*c(-2,2)
 
 x*c(-2,0,2)
 
-##This is almost never what you want. Pay attention to warnings. Note that Warnings are different to Errors. We just saw a warning, where what happened is (probably) undesirable but not fatal. You'll get Errors where what happened has been deemed unrecoverable. For example:
+##This is almost never what you want. Pay attention to warnings. 
+#Note that Warnings are different to Errors. We just saw a warning, 
+#where what happened is (probably) undesirable but not fatal. 
+#You'll get Errors where what happened has been deemed unrecoverable. 
+#For example:
 
 x+z
 
-#Just as with the scalars, we can do comparisons. This returns a new vector of TRUE and FALSE indicating which elements are less than 10:
+#Just as with the scalars, we can do comparisons. 
+#This returns a new vector of TRUE and FALSE indicating which elements are less than 10:
 
 x<10
 
@@ -236,9 +265,10 @@ x<y
 
 #And combined arithmetic operations with comparison operations. Both sides of the expression are fully evaluated before the comparison takes place:
 
-x>1/Y
+x>1/y
 
-#Be careful with comparisons: This compares the first element with -20, the second with 20, the third with -20 and the fourth with 20.
+#Be careful with comparisons: This compares the first element with -20, 
+#the second with 20, the third with -20 and the fourth with 20.
 
 x>=c(-20,20)
 
@@ -254,7 +284,8 @@ x != 2
 
 #### Define a vector with a sequence
 
-#Sequences are easy to make, and often useful. Integer sequences can be made with the colon operator:
+#Sequences are easy to make, and often useful. Integer sequences can be made 
+#with the colon operator:
 
 3:10 # sequence 3,4,5,...,10
 
@@ -268,7 +299,9 @@ seq(3,10,by=2)
 
 seq(3,10,length=10)
 
-#Now we will see the meaning of the [1] term - this indicates that you're looking at the first element of a vector. If you make a really long vector, you'll see new numbers:
+#Now we will see the meaning of the [1] term - this indicates that you're 
+#looking at the first element of a vector. If you make a really long vector, 
+#you'll see new numbers:
 
 seq(3,by=2,length=100)
 
@@ -276,7 +309,8 @@ seq(3,by=2,length=100)
 
 #First, assign an element to x
 
-x=seq(3,by=2,length=100) # x is assigned a vector of length 100, starting from 3, with an increment of 2
+x=seq(3,by=2,length=100) # x is assigned a vector of length 100, starting from 3, 
+#with an increment of 2
 x
 
 #Find the 1st element of x using `[]`
@@ -290,7 +324,8 @@ x[100] # 100th element
 ###2.3. Matrix
 
 #Define a matrix (assign to y) with 9 rows and 3 columns using the data in x
-#**Note**: x has been used several time previously. If you wish to assign a new value to x, clean x first by removing it from the workspace.
+#**Note**: x has been used several time previously. If you wish to assign a new 
+#value to x, clean x first by removing it from the workspace.
 
 x  
 rm(x)
@@ -304,7 +339,8 @@ y
 #Dimension of y with `dim()`
 dim(y)
 
-#Result provides a vector of 2. The first element is the number of lines (here 9) and the second element is the number of columns (here 3 columns).
+#Result provides a vector of 2. The first element is the number of lines (here 9) 
+#and the second element is the number of columns (here 3 columns).
 
 #Extract a value from y with []
 
@@ -322,14 +358,19 @@ y[,1] # column 1
 
 y[x]  # referencing an object with another object
 
-#### Define a 3-dimensional array (assign to z) with 3 rows, 3 columns and 3 layers, using the data in x
+#### Define a 3-dimensional array (assign to z) with 3 rows, 
+#3 columns and 3 layers, using the data in x
 
-z <- array(data=x,dim=c(3,3,3))
+
+z <- array(data=x,dim=c(3,3,3))#Arrays are the R data objects which can store 
+#data in more than two dimensions.
+
 z
 z[x]
 z[rev(x)] # What does the function rev() do? How can you find out?
 
-#### Browse the datasets available in R, find Edgar Anderson's Iris data and load it as a dataframe 
+#### Browse the datasets available in R, find Edgar Anderson's Iris data and load 
+#it as a dataframe 
 
 data(iris)
 head(iris)
@@ -348,6 +389,9 @@ mode(iris3)
 
 #### Using matrices instead of data frames 
 
-#When data is all numbers (except for row and column names), I normally use matrices rather than dataframes
-#If you have row names in your data file, and you want to convert to a matrix, you will need to specify which column has the row names (see the row.names argument in the read.table function)
+#When data is all numbers (except for row and column names), 
+#I normally use matrices rather than dataframes
+#If you have row names in your data file, and you want to convert to a matrix, 
+#you will need to specify which column has the row names 
+#(see the row.names argument in the read.table function)
 

@@ -103,7 +103,7 @@ numeric(5) #a numeric vector with 5 elements
 
 logical(5) #a logical vector with 5 elements
 
-You can also create vectors by directly specifying their content. R will then guess the appropriate mode of storage for the vector. For instance:
+#You can also create vectors by directly specifying their content. R will then guess the appropriate mode of storage for the vector. For instance:
 
 x <- c(1, 2, 3)
 
@@ -135,9 +135,6 @@ length(z)
 class(z)
 
 str(z)
-
-#**Question : Finding commonalities**
-#Do you see a property that's common to all these vectors above?
 
 ## Adding Elements
 #The function 'c()' (for combine) can also be used to add elements to a vector.
@@ -227,7 +224,7 @@ dim(m)
 
 #Matrices in R are filled column-wise.
 
-m <- matrix(1:6, nrow = 2, ncol = 3)
+m <- matrix(1:6, nrow = 2, ncol = 3,byrow=T)
 
 #Other ways to construct a matrix
 
@@ -239,7 +236,9 @@ dim(m) <- c(2, 5)
 #Another way is to bind columns or rows using 'cbind()' and 'rbind()'.
 
 x <- 1:3
+
 y <- 10:12
+
 cbind(x, y)
 
 rbind(x, y)
@@ -251,7 +250,7 @@ mdat
 
 #Elements of a matrix can be referenced by specifying the index along each dimension (e.g. "row" and "column") in single square brackets.
 
-mdat[2,3]
+mdat[1,1]
 
 ## List
 #In R lists act as containers. Unlike atomic vectors, the contents of a list are not restricted to a single mode and can encompass any mixture of data types. 
@@ -266,6 +265,7 @@ x <- list(1, "a", TRUE, 1+4i)
 x
 
 x <- vector("list", length = 5) ## empty list
+x
 length(x)
 
 
@@ -323,7 +323,7 @@ names(xlist)
 
 
 dat <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
-dat
+head(dat)
 
 
 ####  Useful Data Frame Functions
@@ -359,7 +359,7 @@ dat$y
 #The following table summarizes the one-dimensional and two-dimensional data 
 #structures in R in relation to diversity of data types they can contain.
 
-**Dimensions**    | **Homogenous**  | **Homogenous**
+**Dimensions**    | **Homogenous**  | **Heterogenous**
 ------------------|-----------------|---------------
 1-D               | atomic vector   | list
 2-D               | matrix          | data frame

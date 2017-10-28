@@ -330,3 +330,4 @@ sample(1:100,size=5,replace=FALSE)
 # hint: nrow() & ncol() can help
 submat <- abundance_table[sample(1:nrow(abundance_table),size=5),sample(1:ncol(abundance_table),size=5)]
 submat # note that everyone will get a different matrix!
+

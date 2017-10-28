@@ -129,9 +129,34 @@ points(crMass ~ x_mm, data= otiShells[grep('Pingui',otiShells$taxonName),], col=
 points(crMass ~ x_mm, data= otiShells[grep('Abranda',otiShells$taxonName),], col="green", pch=21) 
 ## WHAT ELSE CAN WE SPECIFY FOR POINTS?
 
+## A PLOTTING EXAMPLE
+plot(sort(pingData[,'x_mm']),seq(nrow(pingData),1,by=-1)/nrow(pingData), type='n', xlab='maximum shell length (mm)', ylab='proportion of population', main='Pinguitellina survivorship', log='y', col='black', lwd=2)
+
+##	PLOT LINES FOR RANDOM SUBSAMPLES
+siteSize <- aggregate(pingData$siteName,by=list(pingData$siteName),FUN=length)
+subSampleSize <- max(siteSize$x)
+SubSampleNumb <- 100
+for (i in 1:SubSampleNumb) {
+	# GET A RANDOM SUBSET OF THE WHOLE DATASET
+	pingSub <- sample(pingData[,'x_mm'],subSampleSize)
+	# PLOT THE RANDOM SUBSET
+	lines(sort(pingSub), seq(subSampleSize/1,by=-1)/subSampleSize, col='grey')
+}
+
+##	PLOT A LINE FOR EACH SAMPLE
+sites <- unique(pingData[,'siteName'])
+colours <- rainbow(length(sites), start=0.7, end=0.2)
+for (i in 1:length(sites)) {
+	# GET ONLY THE DATA FOR ONE SAMPLE
+	pingSite <- pingData[(pingData[,'siteName']== sites[i]),]
+	# PLOT THE LINE
+	lines(sort(pingSite[,'x_mm']),seq(nrow(pingSite)/1,by=-1)/nrow(pingSite), col=colours[i], lwd=2)
+	# LABEL THE LINE WITH THE SAMPLE ID 
+	text(max(pingSite[,'x_mm']),1/nrow(pingSite), sites[i], pos=1, col=colours[i], font=2)
+}
+
 ## PLOT IS SUPER GENERAL (IT WILL TRY TO PLOT ANYTHING). FACTORS DEFAULT TO BOXPLOTS...
 plot(crMass ~ siteName, otiShells)
-
 
 #######################################
 ## BOX PLOTS
@@ -308,6 +333,10 @@ dev.off()
 ##  TIP: WHEN THINGS GO WRONG SAVING PLOTS
 ##  - IT IS NEARLY ALWAYS BECAUSE THE FILE WAS NOT CLOSED
 ##  - REPEAT dev.off() until it says "cannot shut down device"
+
+#######################################
+## LOOP EXAMPLE
+#######################################
 
 
 #######################################
