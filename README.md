@@ -3,6 +3,8 @@ These materials were used in the first WIOMSA training workshop on Introduction 
 
 In the meantime, we will continue to update the course GitHub repository with new materials. Please forward any comments to Joseph Maina on <joseph.mbui@mq.edu.au> or to WIOMSA on <secretary@wiomsa.org>.
 
-The folder 'Scripts' has all R files, which are heavily annotated 
-The folder 'Rmd' and 'HTML' contains R Markdown (pdf like) and 'HTML' files respectively
-TO download entire repository, select the green 'clone or download' tab and save as zip file.
+The folder 'Scripts' has all R files, which are heavily annotated. 
+
+The folder 'Rmd' and 'HTML' contains R Markdown (pdf like) and 'HTML' files respectively.
+
+To download entire repository, select the green 'clone or download' tab and 'Download Zip'.
